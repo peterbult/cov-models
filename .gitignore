@@ -4,7 +4,7 @@
 
 # Ignore XSPEC specific build files
 Makefile
-*Functionmap.cxx
+*FunctionMap.cxx
 *FunctionMap.h
 lpack_*.cxx
 pkgIndex.tcl
