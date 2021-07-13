@@ -1,0 +1,11 @@
+# Ignore compiled binary files
+*.o
+*.so
+
+# Ignore XSPEC specific build files
+Makefile
+*Functionmap.cxx
+*FunctionMap.h
+lpack_*.cxx
+pkgIndex.tcl
+
