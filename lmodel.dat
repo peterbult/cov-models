@@ -1,0 +1,17 @@
+covbb   5   0.   1.e20   C_lmodcovbb   add   0 1
+$ReIm	0
+kT      keV     3.    1e-4    1e-3    100       200       .01
+phia	deg	0.    -180.   -90.    90.       180       .1P
+phib	deg	0.    -180.   -90.    90.       180       .1P
+rho  	" "	0.05  0.      0.      1e20      1e24      .01
+
+covpl   5   0.   1.e20   C_lmodcovpl   add   0 1
+$ReIm	0
+PhoIndex " "    1.    -3.    -2.     9.        10.      0.01
+phia	 deg	0.    -180.  -90.    90.      180.      .1P
+phib	 deg	0.    -180.  -90.    90.      180.      .1P
+rho  	 " "	0.05  0.     0.      1e20     1e24      .01
+
+complex    2   0.   1.e20   C_lmodcomplex mul  0 1
+$ReIm	0
+phia	 deg	0.    -180.    -90.    90.      180.       .1P
