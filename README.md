@@ -120,21 +120,19 @@ A complex blackbody spectrum with normalization proportional to the surface area
 [bbodyrad](https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node139.html)). The model
 function is given as
 
-$$
-C_{\rm bb}(E, \nu) = A(\nu) \Bigg[ e^{i \varphi_A(\nu)} \frac{E^2}{\exp(E/T_0) - 1}
- + \rho(\nu) e^{i \varphi_B(\nu)} \frac{E^3 \exp(E/T_0)}{ T_0^2 (\exp(E/T_0) - 1)^2} \Bigg],
-$$
+![covbb equation](covbb-eq.png)
+
 
 with
 
 Parameter | Name | Description
 --------- | ---- | --------------
 par1 | ReIm	| complex output switch (0: from header, 1: REAL, 2: IMAG)
-par2 | kT		| time-averaged blackbody temperature ($T_0$) in units of keV
+par2 | kT		| time-averaged blackbody temperature (T₀) in units of keV
 par3 | phia	| phase lag of the constant temperature term in units of degrees
 par4 | phib	| phase lag of the linear temperature term in units of degrees
 par5 | rho	| linear to constant correlation
-Norm | A		| $R_{km}^2 / D_{10}^2$, with $R_{km}$ the source radius in km and $D_{10}$ source the distance in units of 10 kpc
+Norm | A		| R² / D², with R the source radius in km and D source the distance in units of 10 kpc
 
 
 ### covpl
@@ -142,21 +140,17 @@ Norm | A		| $R_{km}^2 / D_{10}^2$, with $R_{km}$ the source radius in km and $D_
 A complex power law spectrum (see also [powerlaw](https://heasarc.gsfc.nasa.gov/xanadu/xspec/manual/node213.html)).
 The model function is given as
 
-$$
-C_{\rm pl}(E, \nu) 
-    = A(\nu) \Bigg[ e^{i \varphi_A(\nu)} E^{-\Gamma_0}
-    + \rho(\nu) e^{i \varphi_B(\nu)} e^{-\Gamma_0} \log E \Bigg],
-$$
+![covpl equation](covpl-eq.png)
 
 with
 
 Parameter | Name | Description
 --------- | ---- | --------------
 par1 | ReIm	| complex output switch (0: from header, 1: REAL, 2: IMAG)
-par2 | PhoIndex	| time-averaged photon index ($\Gamma_0$)
+par2 | PhoIndex	| time-averaged photon index (Γ₀)
 par3 | phia	| phase lag of the constant photon index term in units of degrees
 par4 | phib	| phase lag of the linear photon index term in units of degrees
 par5 | rho	| linear to constant correlation
-Norm | A	  | normalization in units of photons/keV/cm$^2$ at 1 keV
+Norm | A	  | normalization in units of photons/keV/cm² at 1 keV
 
 
