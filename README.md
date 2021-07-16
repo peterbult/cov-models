@@ -90,7 +90,7 @@ Now, in `xspec`
 	XSPEC> fit
 
 That's it. Notice that all parameters are tied between the two spectra - this is intentional.
-The underlying model exists in complex space, so it is same the same for both
+The underlying model exists in complex space, so it is the same for both
 data groups. Only the projections into the real an imaginary planes differ. As
 noted, the model (`covbb` in this case) will select the output mode based on
 the `ReIm` parameter, which is read automatically from the FITS file header.
