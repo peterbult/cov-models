@@ -48,7 +48,7 @@ the `ftools` as
 
 The comment is not required, of course, but is good practice. 
 
-### Example 
+### Example
 
 Say we are given two covariance spectra, `cov_real.pha` and `cov_imag.pha`,
 storing the real and imaginary projections of the complex cross covariance.
@@ -60,7 +60,7 @@ FITS headers
 	
 Now, in `xspec`
 
-	XSPEC> data 1:1 cov_real.pha 2:2 cov_imag.pha
+	XSPEC> data 1:1 cov_real.pha 1:2 cov_imag.pha
 	XSPEC> model phabs * covbb & /*
 	XSPEC> show parameters
 
@@ -69,7 +69,6 @@ Now, in `xspec`
 	Model phabs<1>*covbb<2> Source No.: 1   Active/On
 	Model Model Component  Parameter  Unit     Value
 	 par  comp
-														 Data group: 1
 		 1    1   phabs      nH         10^22    1.00000      +/-  0.0          
 		 2    2   covbb      ReIm                0            frozen
 		 3    2   covbb      kT         keV      3.00000      +/-  0.0          
@@ -77,25 +76,22 @@ Now, in `xspec`
 		 5    2   covbb      phib       deg      0.0          +/-  0.0          
 		 6    2   covbb      rho                 5.00000E-02  +/-  0.0          
 		 7    2   covbb      norm                1.00000      +/-  0.0          
-														 Data group: 2
-		 8    1   phabs      nH         10^22    1.00000      = p1
-		 9    2   covbb      ReIm                0            = p2
-		10    2   covbb      kT         keV      3.00000      = p3
-		11    2   covbb      phia       deg      0.0          = p4
-		12    2   covbb      phib       deg      0.0          = p5
-		13    2   covbb      rho                 5.00000E-02  = p6
-		14    2   covbb      norm                1.00000      = p7
 	________________________________________________________________________
 
 	XSPEC> fit
 
-That's it. Notice that all parameters are tied between the two spectra - this is intentional.
-The underlying model exists in complex space, so it is the same for both
-data groups. Only the projections into the real an imaginary planes differ. As
-noted, the model (`covbb` in this case) will select the output mode based on
-the `ReIm` parameter, which is read automatically from the FITS file header.
-If, for whatever reason, you do not want to use the headers, the output mode
-can also be set directly in `xspec` as follows
+That's it. The underlying model exists in complex space, so it is the same for both
+spectra in the datagroup. Only the projections into the real an imaginary
+planes differ. As noted, the model (`covbb` in this case) will select the
+output mode based on the `ReIm` parameter, which is read automatically from the
+FITS file header.  
+
+If, for whatever reason, you do not want to use the headers, you can also load
+the spectra into separate datagroups
+
+	XSPEC> data 1:1 cov_real.pha 2:2 cov_imag.pha
+
+and specifiy the projection model through the ReIm parameter as as follows
 
 	XSPEC> newpar 2 1
 	XSPEC> newpar 9 2
